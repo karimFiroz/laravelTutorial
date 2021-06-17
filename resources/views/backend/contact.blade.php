@@ -6,7 +6,8 @@
 	<title>Document</title>
 </head>
 <body>
-<a href="{{URL::to('/')}}">Home</a>
+<a href="http://localhost/laravelTutorial/">Home</a>
+
 	<h2>Contact Page</h2>
 	
 </body>

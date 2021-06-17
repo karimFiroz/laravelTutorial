@@ -26,7 +26,8 @@
 
         
 
-<a href="{{route('backend.index')}}">Contact</a>
+<a href="{{route('backend.index')}}">Contact</a>|
+<a href="{{route('frontend.about')}}">About</a>
 
 
 

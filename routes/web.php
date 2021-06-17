@@ -11,10 +11,12 @@ Route::get('/', function () {return view ('welcome'); } );
 Route::get('/user', [FrontController::class, 'index']);
 |
 */
+Route::get('/', function () {return view ('welcome'); });
+
 
 Route::name('frontend.')->namespace('Frontend')->group(function(){
 
-Route::get('/', [FrontController::class, 'index'])->name('index');
+Route::get('/about', [FrontController::class, 'about'])->name('about');
 Route::get('/users', [FrontController::class, 'index'])->name('users.index');
 Route::get('/users/{id}', [FrontController::class, 'show'])->name('users.show');
 

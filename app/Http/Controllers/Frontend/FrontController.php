@@ -12,9 +12,9 @@ class FrontController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function about()
     {
-    return view('frontend.welcome'); 
+    return view('frontend.about'); 
     }
 
     /**
