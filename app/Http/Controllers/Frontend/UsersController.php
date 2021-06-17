@@ -13,7 +13,7 @@ class \UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        echo 'users list';
+        //
     }
     public function show()
     {

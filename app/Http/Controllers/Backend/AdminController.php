@@ -12,13 +12,21 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function user($id,$name){
-echo $id.' '.$name;
+
+    public function index(){
+        //
     }
-    public function index()
+
+
+    public function dashboard()
     {
-    return view('backend.contact');
+    return view('backend.dashboard');
     }
+
+
+
+
+    
 
     /**
      * Show the form for creating a new resource.

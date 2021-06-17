@@ -14,18 +14,17 @@ Route::get('/user', [FrontController::class, 'index']);
 Route::get('/', function () {return view ('welcome'); });
 
 
-Route::name('frontend.')->namespace('Frontend')->group(function(){
+		Route::name('frontend.')->namespace('Frontend')->group(function(){
 
 Route::get('/about', [FrontController::class, 'about'])->name('about');
-Route::get('/users', [FrontController::class, 'index'])->name('users.index');
-Route::get('/users/{id}', [FrontController::class, 'show'])->name('users.show');
+Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 
-});
+		});
 
 
-Route::name('backend.')->namespace('Backend')->group(function(){
+		Route::name('backend.')->namespace('Backend')->group(function(){
 
-Route::get('/contact', [AdminController::class, 'index'])->name('index');
-Route::get('/user/{id}/{name}', [AdminController::class, 'user'])->name('user');
 
-});
+Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+
+		});

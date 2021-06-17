@@ -12,11 +12,22 @@ class FrontController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+      public function index()
+    {
+    //
+    }
+
+
     public function about()
     {
     return view('frontend.about'); 
     }
 
+    
+public function contact()
+    {
+    return view('backend.contact');
+    }
     /**
      * Show the form for creating a new resource.
      *
