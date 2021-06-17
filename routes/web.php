@@ -35,5 +35,8 @@ Route::get('/dashboard2', [AdminController::class, 'dashboard2'])->name('dashboa
 Route::get('/dashboard3', [AdminController::class, 'dashboard3'])->name('dashboard3');
 
 Route::get('/create_user', [UserController::class, 'create'])->name('create_user');
+Route::get('/users', [UserController::class, 'index'])->name('users');
+Route::get('/users/{id}', [UserController::class, 'show']);
+Route::get('/delete/{id}', [UserController::class, 'delete']);
 
 });

@@ -14,8 +14,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $users=User::all();
+        return $users;
+    }//Show all users
 
     /**
      * Show the form for creating a new resource.
@@ -27,11 +28,12 @@ class UserController extends Controller
         //create user
     
    $data=[
-    'name'=> 'Abdul Karim',
-    'email'=>'karim.mdkarim.firoz4@gmail.com',
-    'password'=>'123321'
+    'name'=> 'Monira Firoz',
+    'email'=>'keya5520@yahoo.com',
+    'password'=>'12344321'
    ];
    User::create($data);
+   return "User Create Successfully";
     }//data input into users table
 
     /**
@@ -53,9 +55,20 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        //SELECT * FROM users WHERE id=$id;
+        $user = User::find($id);
+        return $user;
     }
 
+
+
+
+   public function delete($id)
+    {  
+        $user = User::findOrFail($id);
+        $user->delete();
+        return 'Deleted';
+    }
     /**
      * Show the form for editing the specified resource.
      *
