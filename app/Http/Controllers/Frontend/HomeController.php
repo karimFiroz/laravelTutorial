@@ -14,7 +14,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('frontend.home.welcome');
+        
+        $this->data['name']='Md. Abdul Karim';
+        $this->data['age']=58;
+        $this->data['subjects']=['Bangla','English','Mathematics'];
+            
+    
+        return view('frontend.home.index',$this->data);//send data controller to view!
     }
 
     /**
