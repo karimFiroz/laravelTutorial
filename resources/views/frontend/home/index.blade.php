@@ -10,7 +10,9 @@
 <a href="{{route('frontend.contact')}}">Contact</a>|
 <a href="{{route('frontend.about')}}">About</a>
 	<h1>Home Page</h1>
-{{$subjects[0].' '.$subjects[1].' '.$subjects[2]}}
-{{$name}}{{$age}}
+
+Name:{{$name}}<br>
+Roll:{{$roll}}<br>
+Subjects:<br>{{$subject[0]}}<br>{{$subject[1]}}<br>{{$subject[2]}}
 </body>
 </html>

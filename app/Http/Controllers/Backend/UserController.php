@@ -1,21 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Frontend;
+namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
-class \UsersController extends Controller
+use App\Models\user;
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
-        //
-    }
-    public function show()
+    public function index()
     {
         //
     }
@@ -27,8 +24,15 @@ class \UsersController extends Controller
      */
     public function create()
     {
-        //
-    }
+        //create user
+    
+   $data=[
+    'name'=> 'Abdul Karim',
+    'email'=>'karim.mdkarim.firoz4@gmail.com',
+    'password'=>'123321'
+   ];
+   User::create($data);
+    }//data input into users table
 
     /**
      * Store a newly created resource in storage.

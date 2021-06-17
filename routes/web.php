@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\FrontController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,5 +34,6 @@ Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard
 Route::get('/dashboard2', [AdminController::class, 'dashboard2'])->name('dashboard2');
 Route::get('/dashboard3', [AdminController::class, 'dashboard3'])->name('dashboard3');
 
+Route::get('/create_user', [UserController::class, 'create'])->name('create_user');
 
 });
