@@ -10,7 +10,7 @@
 <body>
 	
 
-	<a href="http://localhost/laravelTutorial/">Home</a>
+	<a href="{{route('frontend.home')}}">Home</a>
 	<h1>About Page</h1>
 </body>
 </html>

@@ -7,7 +7,7 @@
 	<title>Document</title>
 </head>
 <body>
-<a href="http://localhost/laravelTutorial/">Home</a>
+<a href="{{route('frontend.home')}}">Home</a>
 
 	<h2>Contact Page</h2>
 	

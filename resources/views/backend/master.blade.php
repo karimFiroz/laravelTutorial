@@ -42,7 +42,7 @@
         <a class="nav-link" data-widget="pushmenu" href="{{asset('public/backend')}}/#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="http://localhost/laravelTutorial/" class="nav-link">Home</a>
+        <a href="{{route('frontend.home')}}" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{route('frontend.contact')}}" class="nav-link">Contact</a>
@@ -858,7 +858,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="http://localhost/laravelTutorial/">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{route('frontend.home')}}">Home</a></li>
               <li class="breadcrumb-item active">Dashboard v1</li>
             </ol>
           </div><!-- /.col -->

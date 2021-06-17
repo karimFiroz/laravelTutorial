@@ -1,33 +1,22 @@
 <?php
 
 namespace App\Http\Controllers\Frontend;
+
 use App\Http\Controllers\Controller;
-use App\Models\Front;
 use Illuminate\Http\Request;
 
-class FrontController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-      public function index()
+    public function index()
     {
-    //
+        return view('frontend.home.welcome');
     }
 
-
-    public function about()
-    {
-    return view('frontend.front.about'); 
-    }
-
-    
-public function contact()
-    {
-    return view('frontend.front.contact');
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -52,10 +41,10 @@ public function contact()
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Front  $front
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Front $front)
+    public function show($id)
     {
         //
     }
@@ -63,10 +52,10 @@ public function contact()
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Front  $front
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Front $front)
+    public function edit($id)
     {
         //
     }
@@ -75,10 +64,10 @@ public function contact()
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Front  $front
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Front $front)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -86,10 +75,10 @@ public function contact()
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Front  $front
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Front $front)
+    public function destroy($id)
     {
         //
     }
