@@ -24,7 +24,15 @@ class AdminController extends Controller
     }
 
 
+  public function dashboard2()
+    {
+    return view('backend.admin.dashboard2');
+    }
 
+  public function dashboard3()
+    {
+    return view('backend.admin.dashboard3');
+    }
 
     
 

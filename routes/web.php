@@ -12,6 +12,9 @@ Route::get('/', function () {return view ('welcome'); } );
 Route::get('/user', [FrontController::class, 'index']);
 |
 */
+//Route::get('/', function () {return view ('backend.master3'); } );
+
+
 Route::name('frontend.')->namespace('Frontend')->group(function(){
 
 
@@ -27,6 +30,8 @@ Route::name('backend.')->namespace('Backend')->group(function(){
 
 
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+Route::get('/dashboard2', [AdminController::class, 'dashboard2'])->name('dashboard2');
+Route::get('/dashboard3', [AdminController::class, 'dashboard3'])->name('dashboard3');
 
 
 });
