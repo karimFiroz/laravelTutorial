@@ -77,7 +77,12 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user=User::find($id);
+        $user->name='karim Firoz';
+        $user->email='karim_firoz@yahoo.com';
+        $user->password='esif4@cc';
+        $user->save();
+        return 'Data Edited';
     }
 
     /**

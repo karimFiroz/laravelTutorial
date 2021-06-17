@@ -34,9 +34,10 @@ Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard
 Route::get('/dashboard2', [AdminController::class, 'dashboard2'])->name('dashboard2');
 Route::get('/dashboard3', [AdminController::class, 'dashboard3'])->name('dashboard3');
 
-Route::get('/create_user', [UserController::class, 'create'])->name('create_user');
-Route::get('/users', [UserController::class, 'index'])->name('users');
+Route::get('/users', [UserController::class, 'index'])->name('users')->name('users');
+Route::get('/create_user', [UserController::class, 'create']);
 Route::get('/users/{id}', [UserController::class, 'show']);
-Route::get('/delete/{id}', [UserController::class, 'delete']);
+Route::get('/users/{id}/delete', [UserController::class, 'delete']);
+Route::get('/users/{id}/edit', [UserController::class, 'edit']);
 
 });
