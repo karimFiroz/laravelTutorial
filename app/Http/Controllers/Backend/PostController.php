@@ -26,10 +26,12 @@ class PostController extends Controller
     public function create()
     {
          $data=[
-         'title'=>'FLH',
-         'user_id'=>3,
+         'title'=>'Firoz Learning Home',
+         'user_id'=>5,
          'description'=>'I am learning Laravel',
-         'status'=>1
+         'status'=>1,
+         'created_at'=>now(),
+         'updated_at'=>now()
              ];
          DB::table('posts')->insert($data);
          //Post::create('$data');
