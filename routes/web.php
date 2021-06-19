@@ -1,5 +1,12 @@
 <?php
+/*******
+*Models
+*********/
 use App\Models\Post;
+use App\Models\User;
+/**************
+*Controllers
+***************/
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\FrontController;
 use App\Http\Controllers\Frontend\HomeController;
@@ -8,25 +15,27 @@ use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\PostController;
 /****************************
 |--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-Route::get('/', function () {return view ('welcome'); } );
+| Web Routes:
+using callback function: Route::get('/', function () {return view ('welcome'); } );
+using Controller: Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
-***************************/
-Route::get('/orm', function () {
-$data=[
-'title'=>'Firoz Learning Home',
-'user_id'=>2,
-'description'=>'I am learning Laravel from Youtube tutorial',
-'status'=>0
-    ];
-DB::table('posts')->insert($data);
-//Post::create('$data');
-return 'Post inserted';
+|--------------------------------------------------------------------------
+Group of Controllers:
+Route::name('frontend.')->namespace('Frontend')->group(function(){ routes here    });
+Route::name('backend.')->namespace('Backend')->group(function(){ routes here  });
+
+//Test:
+Route::get('/edit/{id}', function ($id) {
+$user=User::find($id);
+        $user->name='SarkarFiroz';
+        $user->email='karim_firoz@yahoo.com';
+        $user->password='esif4@cc';
+        $user->save();
+        return 'Data Edited';
 	 });
-/********************************
+/*****************************************************************
 Active Route
-********************************/
+**********************************************************************/
 Route::name('frontend.')->namespace('Frontend')->group(function(){
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -41,18 +50,48 @@ Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard
 Route::get('/dashboard2', [AdminController::class, 'dashboard2'])->name('dashboard2');
 Route::get('/dashboard3', [AdminController::class, 'dashboard3'])->name('dashboard3');
 
-
-
-Route::get('/create_user', [UserController::class, 'create'])->name('create');
-
-//Route::get('/orm', [PostController::class, 'create'])->name('create');
-
 });
-
-
-
-/*Create:
-
+/************************************
+*Delete Data
+*********************************
+Route::get('/delete/{id}', function ($id) {
+$user = User::findOrFail($id);
+        $user->delete();
+        return 'Deleted';
+	 });
+/******************************
+*Show Data/Read
+**************************
+Route::get('/show/{id}', function ($id) {
+ $user = User::find($id);
+        return $user;
+	 });
+**************************/
+/*************************
+*Edit Data/Update Data
+***************************
+Route::get('/edit/{id}', function ($id) {
+$user=User::find($id);
+        $user->name='SarkarFiroz';
+        $user->email='karim_firoz@yahoo.com';
+        $user->password='esif4@cc';
+        $user->save();
+        return 'Data Edited';
+	 });
+/***********************
+*Create/Insert data:
+***************************
+Route::get('/insert', function () {
+ $data=[
+    'name'=> 'FirozMonira',
+    'email'=>'firozmonira@yahoo.com',
+    'password'=>'1234554321'
+   ];
+   User::create($data);
+   return "User Create Successfully";
+    //data input into users table
+	 });
+********************************
 Route::get('/orm', function () {
 $data=[
 'title'=>'Firoz Learning Home',

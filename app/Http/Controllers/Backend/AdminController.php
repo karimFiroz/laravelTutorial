@@ -7,28 +7,33 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    /**
+    /*************************************
      * Display a listing of the resource.
-     *
      * @return \Illuminate\Http\Response
-     */
+     ***********************************/
 
     public function index(){
         //
     }
 
-
+    /************************************
+     * Dashboard: backend.admin.dashboard1
+     ***********************************/
     public function dashboard()
     {
     return view('backend.admin.dashboard');
     }
 
-
+/************************************
+     * Dashboard: backend.admin.dashboard2
+     ***********************************/
   public function dashboard2()
     {
     return view('backend.admin.dashboard2');
     }
-
+/************************************
+     * Dashboard: backend.admin.dashboard3
+     ***********************************/
   public function dashboard3()
     {
     return view('backend.admin.dashboard3');
