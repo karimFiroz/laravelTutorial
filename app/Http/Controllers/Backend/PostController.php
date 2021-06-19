@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Backend;
 use DB;
-use App\Models\user;
+use App\Models\Post;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users=User::all();
-        return $users;
-    }//Show all users
+        //
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -26,16 +25,16 @@ class UserController extends Controller
      */
     public function create()
     {
-        //create user
-    
-   $data=[
-    'name'=> 'Firoz',
-    'email'=>'firo@yahoo.com',
-    'password'=>'123321'
-   ];
-   User::create($data);
-   return "User Create Successfully";
-    }//data input into users table
+         $data=[
+         'title'=>'FLH',
+         'user_id'=>3,
+         'description'=>'I am learning Laravel',
+         'status'=>1
+             ];
+         DB::table('posts')->insert($data);
+         //Post::create('$data');
+         return 'Data Inserted';
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -56,20 +55,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //SELECT * FROM users WHERE id=$id;
-        $user = User::find($id);
-        return $user;
+        //
     }
 
-
-
-
-   public function delete($id)
-    {  
-        $user = User::findOrFail($id);
-        $user->delete();
-        return 'Deleted';
-    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -78,12 +66,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user=User::find($id);
-        $user->name='karim Firoz';
-        $user->email='karim_firoz@yahoo.com';
-        $user->password='esif4@cc';
-        $user->save();
-        return 'Data Edited';
+        //
     }
 
     /**
