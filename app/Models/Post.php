@@ -9,4 +9,11 @@ class Post extends Model
 {
 	
     protected $fillable=['title','user_id','description','status'];
+
+public function user(){
+	return $this->belongsTo(Tag::class,'post_tag');
+}
+
+
+
 }

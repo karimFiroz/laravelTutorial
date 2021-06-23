@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Backend;
 use DB;
-use App\Models\user;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Post;
+use App\Models\Address;
+use App\Models\Tag;
+use App\Models\User;
 class UserController extends Controller
 {
     /**
@@ -19,6 +22,42 @@ class UserController extends Controller
         return $users;
     }//Show all users
 
+      public function one_to_one()
+    {
+       echo '<pre>';
+
+        $user=User::find(1);
+       echo $user->name.'<br>';
+       echo $user->email.'<br>';
+       echo $user->address->country.'<br>';
+}
+
+      public function one_to_many()
+    {
+        echo '<pre>';
+
+$post = Post::find(2);
+    echo $post->title . '<br/>';
+
+    echo '<h2> Tags </h2>';
+    foreach ($post->tags as $tag) {
+        echo $tag->title . '<br/>';
+    }
+
+}
+      public function one_to_many_inverse()
+    {
+        echo '<pre>';
+
+$post = Post::find(2);
+    echo $post->title . '<br/>';
+
+    echo '<h2> Tags </h2>';
+    foreach ($post->tags as $tag) {
+        echo $tag->title . '<br/>';
+    }
+
+}
     /**
      * Show the form for creating a new resource.
      *
