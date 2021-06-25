@@ -1,7 +1,5 @@
  
-<?php
-Session_start();
-?>
+
  <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +50,7 @@ Session_start();
         <a href="{{route('frontend.contact')}}" class="nav-link">Contact</a>
       </li>
        <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{route('backend.login')}}" class="nav-link">Login</a>
+        <a href="{{route('backend.logout')}}" class="nav-link">Logout</a>
       </li>
     </ul>
 
@@ -197,16 +195,17 @@ Session_start();
         <div class="info">
           <a href="{{asset('public/backend')}}/#" class="d-block">
          
-Abdul Karim
+<h3>
  
     <?php
 $username=Session::get('username');
 if($username){
   echo $username;
   Session::put('username','');
+  
 }
     ?>
-
+</h3>
         </a>
         </div>
       </div>

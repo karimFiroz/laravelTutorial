@@ -1,4 +1,7 @@
 <?php
+
+
+
 /*******
 *Models
 *********/
@@ -13,15 +16,17 @@ use App\Models\Tag;
 *Controllers
 ***************/
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\Frontend\FrontController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\Super_AdminController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\TagController;
 use App\Http\Controllers\Backend\Post_tagController;
 use App\Http\Controllers\Backend\AddressController;
+
+
 /****************************
 |--------------------------------------------------------------------------
 | Web Routes:
@@ -56,13 +61,15 @@ Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 });
 
 Route::middleware('test')->name('backend.')->namespace('Backend')->group(function(){
-echo 'Login First!!';
-Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-Route::get('/dashboard2', [AdminController::class, 'dashboard2'])->name('dashboard2');
-Route::get('/dashboard3', [AdminController::class, 'dashboard3'])->name('dashboard3');
 
 
 
+Route::get('/dashboard', [Super_AdminController::class, 'dashboard'])->name('dashboard');
+Route::get('/dashboard2', [Super_AdminController::class, 'dashboard2'])->name('dashboard2');
+Route::get('/dashboard3', [Super_AdminController::class, 'dashboard3'])->name('dashboard3');
+
+
+Route::get('/logout', [Super_AdminController::class, 'logout'])->name('logout');
 Route::get('/login', [AdminController::class, 'index'])->name('login');
 Route::post('/check', [AdminController::class, 'check']);
 

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use DB;
 use Session;
+session_start();
 class AdminController extends Controller
 {
     /*************************************
@@ -31,34 +32,22 @@ if($result){
     Session::put('username',$result->username); 
     return redirect()->to('dashboard');
 }else{
-    Session::put('exception','Your Username Or Password Invalide!!');
+    Session::put('exception','Your Email Or Password Invalide!!');
    return redirect()->to('login'); 
 }
      return view('backend.admin.login');
     }
+private function authCheck(){
+    $id=Session::get('id');
+    if($id !=NULL){
+        return;
+    }else{
+        return redirect()->to('login')->send();
+    }
+}
 
-    /************************************
-     * Dashboard: backend.admin.dashboard1
-     ***********************************/
-    public function dashboard()
-    {
-    return view('backend.admin.dashboard');
-    }
 
-/************************************
-     * Dashboard: backend.admin.dashboard2
-     ***********************************/
-  public function dashboard2()
-    {
-    return view('backend.admin.dashboard2');
-    }
-/************************************
-     * Dashboard: backend.admin.dashboard3
-     ***********************************/
-  public function dashboard3()
-    {
-    return view('backend.admin.dashboard3');
-    }
+  
 
     
 

@@ -35,15 +35,28 @@
 					@csrf
 					<span class="login100-form-title">
 						Member Login
+						<span>
+
+
 						<h6 style="color:red">
-		<?php
-$exception=Session::get('exception');
-if($exception){
-	echo $exception;
-	Session::put('exception','');
-}
-		?>
-	</h6>
+								<?php
+						$exception=Session::get('exception');
+						if($exception){
+							echo $exception;
+							Session::put('exception','');
+						}
+								?>
+						</h6>
+
+						<h6 style="color:green">
+								<?php
+						$message=Session::get('message');
+						if($message){
+							echo $message;
+							Session::put('message','');
+						}
+								?>
+						</h6>
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
