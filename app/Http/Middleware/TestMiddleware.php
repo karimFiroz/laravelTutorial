@@ -17,7 +17,7 @@ class TestMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-  dd();
+  
         return $next($request);
     }
 }

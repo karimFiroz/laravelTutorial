@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Redirect;
+use DB;
 class AdminController extends Controller
 {
     /*************************************
@@ -13,7 +14,23 @@ class AdminController extends Controller
      ***********************************/
 
     public function index(){
-        //
+     return view('backend.admin.login');
+    }
+
+     public function check(Request $request){
+        $username=$request->username;
+        $email=$request->email;
+        $password=$request->password;
+$result=DB::table('admins')
+->where('email',$email)
+->where('password',$password)
+->first();
+if($result){
+    return redirect()->to('dashboard');
+}else{
+   return redirect()->to('login'); 
+}
+     return view('backend.admin.login');
     }
 
     /************************************

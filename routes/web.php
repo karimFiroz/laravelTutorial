@@ -33,15 +33,17 @@ Group of Controllers:
 Route::middleware('test')->name('frontend.')->namespace('Frontend')->group(function(){ routes here    });
 Route::middleware('test')->name('backend.')->namespace('Backend')->group(function(){ routes here  });
 */
-
-// Route::get('/one_to_many', function () {
-// $post = Post::find(2);
-// 	echo $post->title . '<br/>';
-
-// 	echo '<h2> Tags </h2>';
-// 	foreach ($post->tags as $tag) {
-// 		echo $tag->title . '<br/>';}
-// 	 });
+// Route::get('/insert', function () {
+//  $data=[
+//     'username'=>'karim',
+//     'email'=>'mdkarim66@yahoo.com',
+//     'password'=>'12344321',
+//     'created_at'=>now(),
+//     'updated_at'=>now()
+//    ];
+//    Admin::insert($data);
+//    return "User Create Successfully";
+//    });
 /*****************************************************************
 Active Route
 **********************************************************************/
@@ -58,6 +60,11 @@ echo 'Login First!!';
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 Route::get('/dashboard2', [AdminController::class, 'dashboard2'])->name('dashboard2');
 Route::get('/dashboard3', [AdminController::class, 'dashboard3'])->name('dashboard3');
+
+
+
+Route::get('/login', [AdminController::class, 'index'])->name('login');
+Route::post('/check', [AdminController::class, 'check']);
 
 });
 
