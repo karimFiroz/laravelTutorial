@@ -1,9 +1,5 @@
 @extends('backend.login_master')
 @section('login_content')
-
-
-
-	<h2>Contact Page</h2>
-	
+<h1>Add category page</h1>
 
 @endsection

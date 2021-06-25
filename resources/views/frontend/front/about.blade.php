@@ -1,16 +1,7 @@
+@extends('backend.login_master')
+@section('login_content')
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>about</title>
-</head>
-<body>
 	
-
-	<a href="{{route('frontend.home')}}">Home</a>
 	<h1>About Page</h1>
-</body>
-</html>
+
+@endsection

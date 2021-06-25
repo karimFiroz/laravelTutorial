@@ -68,10 +68,11 @@ Route::get('/dashboard', [Super_AdminController::class, 'dashboard'])->name('das
 Route::get('/dashboard2', [Super_AdminController::class, 'dashboard2'])->name('dashboard2');
 Route::get('/dashboard3', [Super_AdminController::class, 'dashboard3'])->name('dashboard3');
 
-
-Route::get('/logout', [Super_AdminController::class, 'logout'])->name('logout');
 Route::get('/login', [AdminController::class, 'index'])->name('login');
 Route::post('/check', [AdminController::class, 'check']);
+Route::get('/logout', [Super_AdminController::class, 'logout'])->name('logout');
+Route::get('/add_category', [Super_AdminController::class, 'addCategory'])->name('addCategory');
+
 
 });
 

@@ -1,3 +1,6 @@
+
+@extends('backend.login_master')
+@section('login_content')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,10 +9,7 @@
 	<title>Home Page</title>
 </head>
 <body>
-	<a href="{{route('backend.login')}}" class="nav-link">Login</a>|
-	<!-- <a href="{{route('backend.dashboard')}}">Dashboard</a> -->
-<a href="{{route('frontend.contact')}}">Contact</a>|
-<a href="{{route('frontend.about')}}">About</a>
+	
 	<h1>Home Page</h1>
 
 Name:{{$name}}<br>
@@ -17,3 +17,4 @@ Roll:{{$roll}}<br>
 Subjects:<br>{{$subject[0]}}<br>{{$subject[1]}}<br>{{$subject[2]}}
 </body>
 </html>
+@endsection
