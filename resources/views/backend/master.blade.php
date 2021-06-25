@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+ 
+<?php
+Session_start();
+?>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -191,7 +195,19 @@
           <img src="{{asset('public/backend')}}/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="{{asset('public/backend')}}/#" class="d-block">Alexander Pierce</a>
+          <a href="{{asset('public/backend')}}/#" class="d-block">
+         
+Abdul Karim
+ 
+    <?php
+$username=Session::get('username');
+if($username){
+  echo $username;
+  Session::put('username','');
+}
+    ?>
+
+        </a>
         </div>
       </div>
 

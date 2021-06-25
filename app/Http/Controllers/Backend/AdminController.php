@@ -6,6 +6,7 @@ use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use DB;
+use Session;
 class AdminController extends Controller
 {
     /*************************************
@@ -26,8 +27,11 @@ $result=DB::table('admins')
 ->where('password',$password)
 ->first();
 if($result){
+    Session::put('id',$result->id);
+    Session::put('username',$result->username); 
     return redirect()->to('dashboard');
 }else{
+    Session::put('exception','Your Username Or Password Invalide!!');
    return redirect()->to('login'); 
 }
      return view('backend.admin.login');

@@ -23,18 +23,27 @@
 <!--===============================================================================================-->
 </head>
 <body>
-	
+
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
-					<img src="{{asset('public/backend/admin')}}/images/img-01.png" alt="IMG">
+					<img src="{{asset('public/backend/admin')}}/images/firoz.jpg" alt="IMG">
 				</div>
 
 				<form class="login100-form validate-form"action="check" method="post">
 					@csrf
 					<span class="login100-form-title">
 						Member Login
+						<h6 style="color:red">
+		<?php
+$exception=Session::get('exception');
+if($exception){
+	echo $exception;
+	Session::put('exception','');
+}
+		?>
+	</h6>
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
