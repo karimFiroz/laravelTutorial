@@ -26,6 +26,7 @@ class Super_AdminController extends Controller
      ***********************************/
     public function dashboard()
     {
+         $this->authCheck();
     return view('backend.admin.dashboard');
     }
 
@@ -34,6 +35,7 @@ class Super_AdminController extends Controller
      ***********************************/
   public function dashboard2()
     {
+        $this->authCheck();
     return view('backend.admin.dashboard2');
     }
 /************************************
@@ -41,8 +43,21 @@ class Super_AdminController extends Controller
      ***********************************/
   public function dashboard3()
     {
+        $this->authCheck();
     return view('backend.admin.dashboard3');
     }
+
+
+    
+    private function authCheck(){
+$id=Session::get('id');
+if($id !=NULL){
+return;
+    }else{
+        return redirect()->to('login')->send();
+    }
+}
+
 
 public function logout(){
     Session::put('id','');

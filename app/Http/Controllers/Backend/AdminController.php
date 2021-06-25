@@ -16,6 +16,8 @@ class AdminController extends Controller
      ***********************************/
 
     public function index(){
+
+ 
      return view('backend.admin.login');
     }
 
@@ -23,11 +25,11 @@ class AdminController extends Controller
         $username=$request->username;
         $email=$request->email;
         $password=$request->password;
-$result=DB::table('admins')
-->where('email',$email)
-->where('password',$password)
-->first();
-if($result){
+            $result=DB::table('admins')
+            ->where('email',$email)
+            ->where('password',$password)
+            ->first();
+            if($result){
     Session::put('id',$result->id);
     Session::put('username',$result->username); 
     return redirect()->to('dashboard');
@@ -37,9 +39,12 @@ if($result){
 }
      return view('backend.admin.login');
     }
+
+
+
 private function authCheck(){
     $id=Session::get('id');
-    if($id !=NULL){
+    if($id ==NULL){
         return;
     }else{
         return redirect()->to('login')->send();

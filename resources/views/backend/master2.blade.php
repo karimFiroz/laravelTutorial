@@ -35,6 +35,9 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{route('frontend.contact')}}" class="nav-link">Contact</a>
       </li>
+       <li class="nav-item d-none d-sm-inline-block">
+        <a href="{{route('backend.logout')}}" class="nav-link">Logout</a>
+      </li>
     </ul>
 
     <!-- Right navbar links -->
