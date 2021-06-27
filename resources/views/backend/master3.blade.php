@@ -1146,5 +1146,7 @@
 <script src="{{asset('public/backend')}}/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('public/backend')}}/dist/js/pages/dashboard3.js"></script>
+<script src="{{asset('public/backend/admin')}}/js/parsley.min.js"></script>
+<script src="{{asset('public/backend/admin')}}/js/jquery.js"></script>
 </body>
 </html>
