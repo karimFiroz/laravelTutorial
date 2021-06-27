@@ -9,6 +9,20 @@
 
 
 	<form class="form-horizontal"action="{{route('backend.store')}}"method="post">
+
+
+    @if($errors->any())
+
+    <div class="alert alert-danger">
+      <ul>
+        @foreach($errors->all() as $error)
+        <p>{{$error}}</p>
+        @endforeach
+      </ul>
+    </div>
+    
+@endif
+
 		@csrf
   <div class="form-group">
     <label for="exampleInputEmail1">Name</label>

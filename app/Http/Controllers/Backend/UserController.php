@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\Backend;
 use DB;
-
+use Session;
+session_start();
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
@@ -14,6 +15,7 @@ class UserController extends Controller
     
     public function index()
     {
+         $this->authCheck();
       $users=User::all(); 
     return view('backend.admin.users')->with('users', $users);
     }
@@ -36,6 +38,17 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        //Check validation
+        $this->validate($request,[
+'name'=>'required|string|max:15',
+'password'=>'required|min:6' 
+
+        ]);
+
+
+
+
+
         $user=new User;
         $user->name=$request->name;
         $user->email=$request->email;
@@ -87,4 +100,18 @@ class UserController extends Controller
     {
         //
     }
+
+       private function authCheck(){
+$id=Session::get('id');
+if($id !=NULL){
+return;
+    }else{
+        return redirect()->to('login')->send();
+    }
+}
+
+
+
+
+
 }
