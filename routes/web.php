@@ -80,14 +80,12 @@ Route::get('/add_category', [Super_AdminController::class, 'addCategory'])->name
 
 //user
 Route::get('/users', [UserController::class, 'index'])->name('users');
-
 Route::get('/add_user', [UserController::class, 'addUser'])->name('addUser');
-
 Route::get('/create', [UserController::class, 'create'])->name('create');
 Route::post('/store', [UserController::class, 'store'])->name('store');
-
 Route::get('/edit/{id}', [UserController::class, 'edit'])->name('edit');
 Route::post('/update/{id}', [UserController::class, 'update'])->name('update');
+Route::post('/delete/{id}', [UserController::class, 'delete'])->name('delete');
 
 
 

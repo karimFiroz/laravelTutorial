@@ -11,16 +11,13 @@ use App\Models\Tag;
 use App\Models\User;
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
       $users=User::all(); 
     return view('backend.admin.users')->with('users', $users);
     }
+
 
 
     public function addUser()
@@ -29,11 +26,13 @@ class UserController extends Controller
         return view('backend.admin.add_user');
     }
 
+
    
     public function create()
     {
    return view('backend.admin.add_user');
     }
+
 
     public function store(Request $request)
     {
@@ -44,6 +43,7 @@ class UserController extends Controller
         $user->save();
         return redirect()->route('backend.users');
     }
+
 
     public function edit($id)
     {
@@ -73,30 +73,16 @@ class UserController extends Controller
     }
 
 
-
-
-   public function delete($id)
-    {  
-        $user = User::findOrFail($id);
-        $user->delete();
-        return 'Deleted';
+    public function delete($id)
+    {
+       
+            $user=User::find($id);
+    
+            $user->delete();
+       return redirect()->route('backend.users');
     }
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-  
-
-  
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
+    
     public function destroy($id)
     {
         //
