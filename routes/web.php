@@ -49,9 +49,10 @@ Route::middleware('test')->name('backend.')->namespace('Backend')->group(functio
 //    Admin::insert($data);
 //    return "User Create Successfully";
 //    });
-/*****************************************************************
-Active Route
-**********************************************************************/
+/*******************
+Active Route Frontend
+*********************/
+
 Route::name('frontend.')->namespace('Frontend')->group(function(){
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -60,18 +61,34 @@ Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 
 });
 
+/*******************
+Active Route Backend
+********************/
 Route::middleware('test')->name('backend.')->namespace('Backend')->group(function(){
 
-
+//Dashboard
 
 Route::get('/dashboard', [Super_AdminController::class, 'dashboard'])->name('dashboard');
 Route::get('/dashboard2', [Super_AdminController::class, 'dashboard2'])->name('dashboard2');
 Route::get('/dashboard3', [Super_AdminController::class, 'dashboard3'])->name('dashboard3');
 
+//Session
 Route::get('/login', [AdminController::class, 'index'])->name('login');
 Route::post('/check', [AdminController::class, 'check']);
 Route::get('/logout', [Super_AdminController::class, 'logout'])->name('logout');
 Route::get('/add_category', [Super_AdminController::class, 'addCategory'])->name('addCategory');
+
+//user
+Route::get('/users', [UserController::class, 'index'])->name('users');
+
+Route::get('/add_user', [UserController::class, 'addUser'])->name('addUser');
+
+Route::get('/create', [UserController::class, 'create'])->name('create');
+Route::post('/store', [UserController::class, 'store'])->name('store');
+
+Route::get('/edit/{id}', [UserController::class, 'edit'])->name('edit');
+Route::post('/update/{id}', [UserController::class, 'update'])->name('update');
+
 
 
 });

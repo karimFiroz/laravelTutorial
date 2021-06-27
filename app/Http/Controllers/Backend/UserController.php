@@ -18,81 +18,53 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users=User::all();
-        return $users;
-    }//Show all users
-
-      public function one_to_one()
-    {
-       echo '<pre>';
-
-        $user=User::find(1);
-       echo $user->name.'<br>';
-       echo $user->email.'<br>';
-       echo $user->address->country.'<br>';
-}
-
-      public function one_to_many()
-    {
-        echo '<pre>';
-
-$post = Post::find(2);
-    echo $post->title . '<br/>';
-
-    echo '<h2> Tags </h2>';
-    foreach ($post->tags as $tag) {
-        echo $tag->title . '<br/>';
+      $users=User::all(); 
+    return view('backend.admin.users')->with('users', $users);
     }
 
-}
-      public function one_to_many_inverse()
+
+    public function addUser()
     {
-        echo '<pre>';
-
-$post = Post::find(2);
-    echo $post->title . '<br/>';
-
-    echo '<h2> Tags </h2>';
-    foreach ($post->tags as $tag) {
-        echo $tag->title . '<br/>';
+   
+        return view('backend.admin.add_user');
     }
 
-}
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function create()
     {
-        //create user
-    
-   $data=[
-    'name'=> 'Firoz',
-    'email'=>'firo@yahoo.com',
-    'password'=>'123321'
-   ];
-   User::create($data);
-   return "User Create Successfully";
-    }//data input into users table
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+   return view('backend.admin.add_user');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    public function store(Request $request)
+    {
+        $user=new User;
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->password=$request->password;
+        $user->save();
+        return redirect()->route('backend.users');
+    }
+
+    public function edit($id)
+    {
+       $users= User::find($id);
+
+   return view('backend.admin.edit')->with('user',$users);
+    }
+
+
+    public function update(Request $request, $id)
+    {
+        $user=User::find($id);
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->password=$request->password;
+        $user->save();
+        
+       return redirect()->route('backend.users');
+    }
+
+
     public function show($id)
     {
         //SELECT * FROM users WHERE id=$id;
@@ -115,27 +87,9 @@ $post = Post::find(2);
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        $user=User::find($id);
-        $user->name='karim Firoz';
-        $user->email='karim_firoz@yahoo.com';
-        $user->password='esif4@cc';
-        $user->save();
-        return 'Data Edited';
-    }
+  
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+  
 
     /**
      * Remove the specified resource from storage.
