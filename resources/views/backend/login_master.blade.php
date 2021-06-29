@@ -27,7 +27,7 @@
 		<div class="container-login100">
 	<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
-					<img src="{{asset('public/backend/admin')}}/images/firoz.jpg" alt="IMG">
+					<img src="{{asset('storage/app/public/')}}/images/1.jpg" alt="IMG">
 				</div>
 
  

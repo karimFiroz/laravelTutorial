@@ -25,6 +25,7 @@ use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\TagController;
 use App\Http\Controllers\Backend\Post_tagController;
 use App\Http\Controllers\Backend\AddressController;
+use App\Http\Controllers\Backend\ImageUploadController;
 
 
 /****************************
@@ -87,8 +88,11 @@ Route::get('/edit/{id}', [UserController::class, 'edit'])->name('edit');
 Route::post('/update/{id}', [UserController::class, 'update'])->name('update');
 Route::post('/delete/{id}', [UserController::class, 'delete'])->name('delete');
 
-
-
+//files upload
+Route::view('file-upload','upload.image');
+Route::post('/file-upload', [ImageUploadController::class, 'store'])->name('imageUpload');
+Route::get('/files', [ImageUploadController::class, 'files'])->name('files');
+Route::get('/delete-file', [ImageUploadController::class, 'delete'])->name('fileDelete');
 });
 
 
