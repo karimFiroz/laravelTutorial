@@ -34,7 +34,7 @@
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password" value="{{$user->password}}">
+    <input type="text" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password" value="{{$user->password}}">
   </div>
 
 

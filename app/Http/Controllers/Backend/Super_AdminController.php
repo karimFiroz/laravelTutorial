@@ -66,8 +66,8 @@ public function logout(){
     Session::put('id','');
     Session::put('username','');
     Session::put('message','You are successfully logout!!');
-    return redirect()->to('login')->send();
-    return view('backend.admin.login');
+    //return redirect()->to('login')->send();
+    return view('frontend.home.index');
 }
   
 

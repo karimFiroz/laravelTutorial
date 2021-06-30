@@ -55,14 +55,7 @@
 	<script src="{{asset('public/backend/admin')}}/js/main.js"></script>
 	<div class="container">
 <div class="footer"style="background:#000;color:#fff;">
-	<ul >
-<li><a href="{{route('frontend.home')}}">Home</a></li>
-<li><a href="{{route('backend.login')}}" class="nav-link">Login</a></li>
-<li><a href="{{route('backend.logout')}}" class="nav-link">Logout</a></li>
 
-<li><a href="{{route('frontend.contact')}}">Contact</a></li>
-<li><a href="{{route('frontend.about')}}">About</a></li>
-</ul>
 	</div>
 	</div>
 </body>

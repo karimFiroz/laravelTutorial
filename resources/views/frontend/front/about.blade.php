@@ -1,5 +1,5 @@
-@extends('backend.login_master')
-@section('login_content')
+@extends('frontend.frontend_master')
+@section('backend_content')
 
 	
 	<h1>About Page</h1>

@@ -1,6 +1,6 @@
 @extends('backend.master')
 @section('main_content')
-<a href="{{route('backend.addUser')}}" class="nav-link">Add New User</a>
+<a href="{{route('backend.addUser')}}" class="nav-link">User Registration</a>
 
 <div class="container">
 	

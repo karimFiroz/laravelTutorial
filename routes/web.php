@@ -53,7 +53,7 @@ Route::middleware('test')->name('backend.')->namespace('Backend')->group(functio
 /*******************
 Active Route Frontend
 *********************/
-
+Route::get('/master', function () {return view ('frontend.master'); } );
 Route::name('frontend.')->namespace('Frontend')->group(function(){
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
