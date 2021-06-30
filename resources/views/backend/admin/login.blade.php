@@ -1,6 +1,10 @@
 @extends('backend.login_master')
+
 @section('login_content')
 
+<div class="login100-pic js-tilt" data-tilt>
+	<img src="{{asset('storage/app/public/')}}/images/1.jpg" alt="IMG">
+ </div>  
 				<form class="login100-form validate-form"action="check" method="post">
 					@csrf
 					<span class="login100-form-title">

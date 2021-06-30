@@ -45,14 +45,14 @@ class UserController extends Controller
 
         ]);
 
-
-
-
-
         $user=new User;
+        $user->admin_id=$request->admin_id;
+        $user->group_id=$request->group_id;
         $user->name=$request->name;
         $user->email=$request->email;
         $user->password=$request->password;
+        $user->phone=$request->phone;
+        $user->address=$request->address;
         $user->save();
         return redirect()->route('backend.users');
     }
@@ -69,9 +69,14 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user=User::find($id);
+        
+         $user->admin_id=$request->admin_id;
+        $user->group_id=$request->group_id;
         $user->name=$request->name;
         $user->email=$request->email;
         $user->password=$request->password;
+        $user->phone=$request->phone;
+        $user->address=$request->address;
         $user->save();
         
        return redirect()->route('backend.users');

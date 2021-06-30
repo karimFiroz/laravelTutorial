@@ -25,19 +25,18 @@
 <body>
 <div class="limiter">
 		<div class="container-login100">
-	<div class="wrap-login100">
-				<div class="login100-pic js-tilt" data-tilt>
-					<img src="{{asset('storage/app/public/')}}/images/1.jpg" alt="IMG">
-				</div>
+<div class="wrap-login100">
 
- 
+	
 
 	@yield('login_content')
+
 	
 	
-</div>
-	</div>
-	</div>
+	 </div>
+</div> 
+	
+ </div>
 <!--===============================================================================================-->	
 	<script src="{{asset('public/backend/admin')}}/vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
