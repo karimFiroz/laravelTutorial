@@ -1,7 +1,7 @@
 @extends('backend.login_master')
 
 @section('login_content')
-
+<li><a href="{{route('frontend.home')}}">Home</a></li>
 <div class="login100-pic js-tilt" data-tilt>
 	<img src="{{asset('storage/app/public/')}}/images/1.jpg" alt="IMG">
  </div>  

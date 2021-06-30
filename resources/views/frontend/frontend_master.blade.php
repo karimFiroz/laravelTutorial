@@ -111,7 +111,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
                         <a class="collapse-item" href="{{route('backend.login')}}">Login</a>
-                       <!--  <a class="collapse-item" href="{{route('backend.addUser')}}">Register</a> -->
+                       <a class="collapse-item" href="{{route('frontend.addUser')}}">Register</a>
                         <a class="collapse-item" href="{{asset('public/frontend')}}/forgot-password.html">Forgot Password</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
@@ -359,7 +359,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-@yield('backend_content')
+@yield('frontend_content')
                 </div>
                 <!-- /.container-fluid -->
 

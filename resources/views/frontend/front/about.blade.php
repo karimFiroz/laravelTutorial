@@ -1,5 +1,5 @@
 @extends('frontend.frontend_master')
-@section('backend_content')
+@section('frontend_content')
 
 	
 	<h1>About Page</h1>

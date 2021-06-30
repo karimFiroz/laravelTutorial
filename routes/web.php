@@ -39,26 +39,36 @@ Group of Controllers:
 Route::middleware('test')->name('frontend.')->namespace('Frontend')->group(function(){ routes here    });
 Route::middleware('test')->name('backend.')->namespace('Backend')->group(function(){ routes here  });
 */
-// Route::get('/insert', function () {
-//  $data=[
-//     'username'=>'karim',
-//     'email'=>'mdkarim66@yahoo.com',
-//     'password'=>'12344321',
-//     'created_at'=>now(),
-//     'updated_at'=>now()
-//    ];
-//    Admin::insert($data);
-//    return "User Create Successfully";
-//    });
+Route::get('/insert', function () {
+ $data=[
+    'admin_id'=>1,
+    'group_id'=>1,
+    'username'=>'karim',
+    'email'=>'mdkarim66@yahoo.com',
+    'password'=>'12344321',
+    'phone'=>'01818-83 07 61',
+    'address'=>'Rohanpur',
+    'created_at'=>now(),
+    'updated_at'=>now()
+   ];
+   Admin::insert($data);
+   return "User Create Successfully";
+   });
 /*******************
 Active Route Frontend
 *********************/
-Route::get('/master', function () {return view ('frontend.master'); } );
+
 Route::name('frontend.')->namespace('Frontend')->group(function(){
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [FrontController::class, 'about'])->name('about');
 Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
+
+
+Route::get('/frontend_users', [FrontController::class, 'index'])->name('addUser');
+Route::get('/frontend_add_user', [FrontController::class, 'addUser'])->name('addUser');
+Route::get('/frontend_create', [FrontController::class, 'create'])->name('create');
+Route::post('/frontend_store', [FrontController::class, 'store'])->name('store');
 
 });
 
