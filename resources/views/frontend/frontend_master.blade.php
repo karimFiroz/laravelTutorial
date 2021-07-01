@@ -110,8 +110,9 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="{{route('backend.login')}}">Login</a>
-                       <a class="collapse-item" href="{{route('frontend.addUser')}}">Register</a>
+                        <a class="collapse-item" href="{{route('backend.login')}}">Admin Login</a>
+                        <a class="collapse-item" href="{{route('frontend.login')}}">User Login</a>
+                       <a class="collapse-item" href="{{route('frontend.addUser')}}">User Registration</a>
                         <a class="collapse-item" href="{{asset('public/frontend')}}/forgot-password.html">Forgot Password</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
@@ -325,7 +326,21 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="{{asset('public/frontend')}}/#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+        <h3>
+ 
+    <?php
+$username=Session::get('username');
+if($username){
+  echo $username;
+  Session::put('username','');
+  
+}
+    ?>
+</h3>
+
+
+                            </span>
                                 <img class="img-profile rounded-circle"
                                     src="{{asset('public/frontend')}}/img/undraw_profile.svg">
                             </a>

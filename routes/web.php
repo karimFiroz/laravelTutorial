@@ -39,21 +39,8 @@ Group of Controllers:
 Route::middleware('test')->name('frontend.')->namespace('Frontend')->group(function(){ routes here    });
 Route::middleware('test')->name('backend.')->namespace('Backend')->group(function(){ routes here  });
 */
-Route::get('/insert', function () {
- $data=[
-    'admin_id'=>1,
-    'group_id'=>1,
-    'username'=>'karim',
-    'email'=>'mdkarim66@yahoo.com',
-    'password'=>'12344321',
-    'phone'=>'01818-83 07 61',
-    'address'=>'Rohanpur',
-    'created_at'=>now(),
-    'updated_at'=>now()
-   ];
-   Admin::insert($data);
-   return "User Create Successfully";
-   });
+
+
 /*******************
 Active Route Frontend
 *********************/
@@ -64,11 +51,15 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [FrontController::class, 'about'])->name('about');
 Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 
-
+//user Ragistration
 Route::get('/frontend_users', [FrontController::class, 'index'])->name('addUser');
 Route::get('/frontend_add_user', [FrontController::class, 'addUser'])->name('addUser');
 Route::get('/frontend_create', [FrontController::class, 'create'])->name('create');
 Route::post('/frontend_store', [FrontController::class, 'store'])->name('store');
+//user login
+Route::get('/frontend_dashboard', [FrontController::class, 'frontend_dashboard'])->name('dashboard');
+Route::get('/frontend_login', [FrontController::class, 'frontend_login'])->name('login');
+Route::post('/frontend_check', [FrontController::class, 'frontend_check']);
 
 });
 
@@ -78,18 +69,20 @@ Active Route Backend
 Route::middleware('test')->name('backend.')->namespace('Backend')->group(function(){
 
 //Dashboard
-
 Route::get('/dashboard', [Super_AdminController::class, 'dashboard'])->name('dashboard');
 Route::get('/dashboard2', [Super_AdminController::class, 'dashboard2'])->name('dashboard2');
 Route::get('/dashboard3', [Super_AdminController::class, 'dashboard3'])->name('dashboard3');
 
-//Session
+//Admin login(Creating Session)
 Route::get('/login', [AdminController::class, 'index'])->name('login');
 Route::post('/check', [AdminController::class, 'check']);
 Route::get('/logout', [Super_AdminController::class, 'logout'])->name('logout');
+
+
+
 Route::get('/add_category', [Super_AdminController::class, 'addCategory'])->name('addCategory');
 
-//user
+//Admin controls user registration
 Route::get('/users', [UserController::class, 'index'])->name('users');
 Route::get('/add_user', [UserController::class, 'addUser'])->name('addUser');
 Route::get('/create', [UserController::class, 'create'])->name('create');
@@ -106,12 +99,24 @@ Route::get('/delete-file', [ImageUploadController::class, 'delete'])->name('file
 });
 
 
-/*************************************************
-*For one_to_one relation create function in User.php ie, User Model
-*****************************************************************
-  public function address(){
-        return $this->hasOne(Address::class);
-    }
+/**************************************
+*Admin Ragistration
+***************************************
+ // Route::get('/insert', function () {
+//  $data=[
+//     'admin_id'=>1,
+//     'group_id'=>1,
+//     'username'=>'karim',
+//     'email'=>'mdkarim66@yahoo.com',
+//     'password'=>'12344321',
+//     'phone'=>'01818-83 07 61',
+//     'address'=>'Rohanpur',
+//     'created_at'=>now(),
+//     'updated_at'=>now()
+//    ];
+//    Admin::insert($data);
+//    return "User Create Successfully";
+//    });
 Inversely:write function in Address.php
 ****************************************
  public function user(){

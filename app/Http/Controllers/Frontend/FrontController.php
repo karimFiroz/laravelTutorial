@@ -87,4 +87,42 @@ public function contact()
     {
         //
     }
+
+public function frontend_login(){
+    return view('frontend.frontend_login');
+}
+
+
+         public function frontend_check(Request $request){
+        $name=$request->name;
+        $email=$request->email;
+        $password=$request->password;
+            $result=DB::table('users')
+            ->where('email',$email)
+            ->where('password',$password)
+            ->first();
+
+print_r($result);
+dd();
+
+
+            if($result){
+     
+    return redirect()->to('frontend.dashboard');
+}else{
+  
+   return redirect()->to('frontend.login'); 
+}
+     return view('frontend.frontend_login');
+    }
+
+public function frontend_dashboard(){
+    return view('frontend.frontend_dashboard_master');
+}
+
+
+
+
+
+
 }
