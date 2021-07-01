@@ -17,6 +17,8 @@ use App\Models\Tag;
 ***************/
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\FrontController;
+use App\Http\Controllers\Frontend\GroupController;
+use App\Http\Controllers\Frontend\ProductController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\Super_AdminController;
@@ -26,6 +28,7 @@ use App\Http\Controllers\Backend\TagController;
 use App\Http\Controllers\Backend\Post_tagController;
 use App\Http\Controllers\Backend\AddressController;
 use App\Http\Controllers\Backend\ImageUploadController;
+use App\Http\Controllers\Backend\CategoryController;
 
 
 /****************************
@@ -40,7 +43,6 @@ Route::middleware('test')->name('frontend.')->namespace('Frontend')->group(funct
 Route::middleware('test')->name('backend.')->namespace('Backend')->group(function(){ routes here  });
 */
 
-
 /*******************
 Active Route Frontend
 *********************/
@@ -50,6 +52,10 @@ Route::name('frontend.')->namespace('Frontend')->group(function(){
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [FrontController::class, 'about'])->name('about');
 Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
+
+Route::get('/groups', [GroupController::class, 'groups'])->name('groups');
+Route::get('/products', [ProductController::class, 'products'])->name('products');
+
 
 //user Ragistration
 Route::get('/frontend_users', [FrontController::class, 'index'])->name('addUser');
@@ -80,7 +86,8 @@ Route::get('/logout', [Super_AdminController::class, 'logout'])->name('logout');
 
 
 
-Route::get('/add_category', [Super_AdminController::class, 'addCategory'])->name('addCategory');
+Route::get('/category', [CategoryController::class, 'index'])->name('category');
+Route::get('/add_category', [CategoryController::class, 'add_category'])->name('add_category');
 
 //Admin controls user registration
 Route::get('/users', [UserController::class, 'index'])->name('users');

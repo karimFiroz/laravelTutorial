@@ -19,10 +19,7 @@ class Super_AdminController extends Controller
     {
     //
     }
-public function addCategory(){
-    $this->authCheck();
-    return view('backend.admin.add_category');
-}
+
 
     /************************************
      * Dashboard: backend.admin.dashboard1

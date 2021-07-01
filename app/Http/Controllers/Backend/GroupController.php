@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class \GroupController extends Controller
+class GroupController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,10 @@ class \GroupController extends Controller
     {
         //
     }
-
+public function groups()
+    {
+        return view('frontend.group.groups');
+    }
     /**
      * Show the form for creating a new resource.
      *

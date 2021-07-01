@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Blank</title>
+    <title>Mini Pos</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('public/frontend')}}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -43,11 +43,15 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="{{asset('public/frontend')}}/index.html">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Users</span></a>
             </li>
-
+<li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Groups</span></a>
+            </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -122,7 +126,31 @@
                     </div>
                 </div>
             </li>
+ <li class="nav-item active">
+                <a class="nav-link" href="{{asset('public/frontend')}}/#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+                    aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Pages</span>
+                </a>
+                <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Login Screens:</h6>
 
+                        <a class="collapse-item" href="{{route('frontend.products')}}">Products</a>
+
+                        <a class="collapse-item" href="{{route('frontend.groups')}}">User Groups</a>
+
+
+                        <a class="collapse-item" href="{{asset('public/frontend')}}/forgot-password.html">Forgot Password</a>
+                        <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">Other Pages:</h6>
+                        <a class="collapse-item" href="{{route('frontend.about')}}">About Us</a>
+                        <a class="collapse-item active" href="{{route('frontend.contact')}}">Contact Us</a>
+                        
+                    </div>
+                </div>
+            </li>
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="{{asset('public/frontend')}}/charts.html">
