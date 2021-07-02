@@ -18,7 +18,7 @@ class GroupController extends Controller
     }
 public function groups()
     {
-        return view('frontend.group.groups');
+        return view('backend.group.groups');
     }
     /**
      * Show the form for creating a new resource.

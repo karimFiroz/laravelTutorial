@@ -139,7 +139,7 @@
 
                         <a class="collapse-item" href="{{route('frontend.products')}}">Products</a>
 
-                        <a class="collapse-item" href="{{route('frontend.groups')}}">User Groups</a>
+                        <a class="collapse-item" href="{{route('backend.groups')}}">User Groups</a>
 
 
                         <a class="collapse-item" href="{{asset('public/frontend')}}/forgot-password.html">Forgot Password</a>

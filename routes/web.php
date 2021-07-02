@@ -17,7 +17,7 @@ use App\Models\Tag;
 ***************/
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\FrontController;
-use App\Http\Controllers\Frontend\GroupController;
+
 use App\Http\Controllers\Frontend\ProductController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Backend\AdminController;
@@ -29,6 +29,7 @@ use App\Http\Controllers\Backend\Post_tagController;
 use App\Http\Controllers\Backend\AddressController;
 use App\Http\Controllers\Backend\ImageUploadController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\GroupController;
 
 
 /****************************
@@ -53,7 +54,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [FrontController::class, 'about'])->name('about');
 Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 
-Route::get('/groups', [GroupController::class, 'groups'])->name('groups');
+
 Route::get('/products', [ProductController::class, 'products'])->name('products');
 
 
@@ -73,7 +74,7 @@ Route::post('/frontend_check', [FrontController::class, 'frontend_check']);
 Active Route Backend
 ********************/
 Route::middleware('test')->name('backend.')->namespace('Backend')->group(function(){
-
+Route::get('/groups', [GroupController::class, 'groups'])->name('groups');
 //Dashboard
 Route::get('/dashboard', [Super_AdminController::class, 'dashboard'])->name('dashboard');
 Route::get('/dashboard2', [Super_AdminController::class, 'dashboard2'])->name('dashboard2');
