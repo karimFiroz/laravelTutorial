@@ -44,11 +44,14 @@ Route::middleware('test')->name('frontend.')->namespace('Frontend')->group(funct
 Route::middleware('test')->name('backend.')->namespace('Backend')->group(function(){ routes here  });
 */
 
+  Route::get('/master', function () {return view ('frontend.frontend_dashboard_master'); });
 /*******************
 Active Route Frontend
 *********************/
 
 Route::name('frontend.')->namespace('Frontend')->group(function(){
+
+
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [FrontController::class, 'about'])->name('about');

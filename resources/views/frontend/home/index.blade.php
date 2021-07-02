@@ -1,6 +1,7 @@
-@extends('frontend.frontend_master')
+   @extends('frontend.frontend_dashboard_master')
 @section('frontend_content')
 
+  
 
 	<h1>Home Page</h1>
 <!DOCTYPE html>
