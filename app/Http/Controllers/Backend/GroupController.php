@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Backend;
 use App\Models\Group;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use DB;
+use Session;
+session_start();
 class GroupController extends Controller
 {
     /**
@@ -21,33 +23,32 @@ public function groups()
         $this->data['groups']=Group::all();
         return view('backend.group.groups',$this->data);
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function create()
     {
-        //
+       return view('backend.group.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+     $formData=$request->all();
+    if(Group::create($formData)){
+         Session::flash('message','Group created successfully!');
+    }
+     return redirect()->to('groups');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
+     public function destroy($id)
+    {
+   if(Group::find($id)->delete()){
+    Session::flash('message','Group Deleted successfully!');
+    return redirect()->to('groups');
+   }
+    }
+  
     public function show($id)
     {
         //
@@ -82,8 +83,5 @@ public function groups()
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+   
 }

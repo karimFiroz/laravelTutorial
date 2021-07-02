@@ -80,6 +80,9 @@ Route::middleware('test')->name('backend.')->namespace('Backend')->group(functio
 
   
 Route::get('/groups', [GroupController::class, 'groups'])->name('groups');
+Route::get('/create_group', [GroupController::class, 'create'])->name('create_group');
+Route::post('/groups', [GroupController::class, 'store']);
+Route::delete('/groups/{id}', [GroupController::class, 'destroy'])->name('destroy');
 //Dashboard
 Route::get('/dashboard', [Super_AdminController::class, 'dashboard'])->name('dashboard');
 Route::get('/dashboard2', [Super_AdminController::class, 'dashboard2'])->name('dashboard2');

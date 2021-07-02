@@ -28,16 +28,21 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                            <h6 class="m-0 font-weight-bold text-primary"><a class="btn-info"href="{{route('backend.create_group')}}"><i class="fa fa-plus"></i>New Group</a></h6>
                         </div>
                         <div class="card-body">
+            @if(Session('message'))
+<div class="alert alert-success" role="alert">
+{{Session('message')}}
+</div>
+            @endif
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
                                             <th>Title</th>
-                                            <th>Action</th>
+                                            <th class="text-right">Action</th>
                                          
                                         </tr>
                                     </thead>
@@ -45,7 +50,7 @@
                                         <tr>
                                             <th>id</th>
                                             <th>Title</th>
-                                            <th>Action</th>
+                                            <th class="text-right">Action</th>
                                           
                                         </tr>
                                     </tfoot>
@@ -54,8 +59,13 @@
                                         <tr>
                                             <td>{{$group->id}}</td>
                                             <td>{{$group->title}}</td>
-                                          <td>
-                                              <a href=""class="btn btn-danger btn-sm">Delete</a>
+                                          <td class="text-right">
+                                            <form method="post"action="{{url('groups/'.$group->id)}}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit"class="btn btn-danger btn-sm"onclick="return confirm('Are you sure delete? ')"><i class="fa fa-trash"></i>Delete</button>
+                                            </form>
+                                              
                                           </td>
                                         </tr>
                                        

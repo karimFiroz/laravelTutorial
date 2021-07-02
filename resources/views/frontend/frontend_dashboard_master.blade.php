@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>SB Admin</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{route('frontend.home')}}" rel="stylesheet" type="text/css">
@@ -18,6 +18,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('public/frontend')}}/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="{{asset('public/frontend')}}/css/style.css" rel="stylesheet">
 
 </head>
 
