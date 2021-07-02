@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Backend;
-
+use App\Models\Group;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -18,7 +18,8 @@ class GroupController extends Controller
     }
 public function groups()
     {
-        return view('backend.group.groups');
+        $this->data['groups']=Group::all();
+        return view('backend.group.groups',$this->data);
     }
     /**
      * Show the form for creating a new resource.

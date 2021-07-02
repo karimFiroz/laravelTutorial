@@ -77,6 +77,8 @@ Route::post('/frontend_check', [FrontController::class, 'frontend_check']);
 Active Route Backend
 ********************/
 Route::middleware('test')->name('backend.')->namespace('Backend')->group(function(){
+
+  
 Route::get('/groups', [GroupController::class, 'groups'])->name('groups');
 //Dashboard
 Route::get('/dashboard', [Super_AdminController::class, 'dashboard'])->name('dashboard');
