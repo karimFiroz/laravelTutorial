@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Front;
 use Illuminate\Http\Request;
-
+use DB;
+use Session;
+session_start();
 class FrontController extends Controller
 {
     /**
@@ -40,8 +42,8 @@ class FrontController extends Controller
 'group'=>'nullable|string|max:15',
 'name'=>'required|string|max:15',
 'password'=>'required|min:6', 
-'email'=>'nullable|email|unique:users', 
-'phone'=>'required|string|unique:users', 
+'email'=>'nullable|email', 
+'phone'=>'required|string'  
 
         ]);
 
@@ -53,7 +55,10 @@ class FrontController extends Controller
         $user->password=$request->password;
         $user->phone=$request->phone;
         $user->address=$request->address;
-        $user->save();
+        if($user->save()){
+            Session::flash('message','User created successfully');
+        }
+        
         return redirect()->route('frontend.home');
     }
 

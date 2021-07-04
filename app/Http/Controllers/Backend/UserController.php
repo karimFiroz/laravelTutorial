@@ -79,8 +79,7 @@ class UserController extends Controller
         $user->password=$request->password;
         $user->phone=$request->phone;
         $user->address=$request->address;
-        $user->save();
-        
+       $user->save();
        return redirect()->route('backend.users');
     }
 
