@@ -37,8 +37,11 @@ class FrontController extends Controller
     {
         //Check validation
         $this->validate($request,[
+'group'=>'nullable|string|max:15',
 'name'=>'required|string|max:15',
-'password'=>'required|min:6' 
+'password'=>'required|min:6', 
+'email'=>'nullable|email|unique:users', 
+'phone'=>'required|string|unique:users', 
 
         ]);
 

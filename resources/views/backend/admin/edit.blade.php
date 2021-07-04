@@ -22,7 +22,9 @@
     <input type="text" class="form-control" id="group_id" name="group_id" aria-describedby="nameHelp" placeholder="Enter your Group_id" value="{{$user->group_id}}">
   </div>
 
-
+ <label for="exampleInputGroup_id">Group</label>
+    <input type="text" class="form-control" id="group_id" name="group" aria-describedby="nameHelp" placeholder="Enter your Group_id" value="{{$user->group}}">
+  </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Name</label>
     <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp" placeholder="Enter your" value="{{$user->name}}">

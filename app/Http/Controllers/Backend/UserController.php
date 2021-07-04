@@ -41,13 +41,14 @@ class UserController extends Controller
         //Check validation
         $this->validate($request,[
 'name'=>'required|string|max:15',
-'password'=>'required|min:6' 
+'password'=>'required|min:6'
 
         ]);
 
         $user=new User;
         $user->admin_id=$request->admin_id;
         $user->group_id=$request->group_id;
+        $user->group=$request->group;
         $user->name=$request->name;
         $user->email=$request->email;
         $user->password=$request->password;
@@ -72,6 +73,7 @@ class UserController extends Controller
         
          $user->admin_id=$request->admin_id;
         $user->group_id=$request->group_id;
+        $user->group=$request->group;
         $user->name=$request->name;
         $user->email=$request->email;
         $user->password=$request->password;

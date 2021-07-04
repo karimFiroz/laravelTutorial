@@ -36,7 +36,10 @@
     <label for="exampleInputGroup_id">Group_id</label>
     <input type="text" name="group_id" class="form-control" id="exampleInputGroup_id" aria-describedby="emailHelp" placeholder="Enter Group_id"requird>
   </div>
-
+  <div class="form-group">
+    <label for="exampleInputGroup_id">Group</label>
+    <input type="text" name="group" class="form-control" id="exampleInputGroup_id" aria-describedby="emailHelp" placeholder="Enter Group_id"requird>
+  </div>
   <div class="form-group">
     <label for="exampleInputName">Name</label>
     <input type="text" name="name" class="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter Name"requird>
